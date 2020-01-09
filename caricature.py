@@ -5,6 +5,7 @@ from PIL import Image
 from imutils import face_utils
 import argparse
 import imutils
+import random
 
 def caricature(filename, outputFilename):
 	# Get user supplied values
@@ -37,7 +38,9 @@ def caricature(filename, outputFilename):
 		for (ex,ey,ew,eh) in eyes:
 			im2 = im.crop((ex, ey, ex+ew, ey+eh))
 			width, height = im2.size
-			im2 = im2.resize((round(width * 1.5), round(height * 1.5)))
+			weight_value = random.uniform(1.25, 1.45)
+			print("Random weight is " + str(weight_value))
+			im2 = im2.resize((round(width * weight_value), round(height * weight_value)))
 			im.paste(im2, (ex, ey))
 			im.save(outputFilename)
 			cv2.rectangle(image, (ex,ey), (ex+ew, ey+eh), (0,255,0), 2)
