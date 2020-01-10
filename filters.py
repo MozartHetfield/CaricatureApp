@@ -152,7 +152,6 @@ def create_drawing(input_image, output_image, mode):
 	if (mode == 0):
 		cv2.imshow("res", limit_size(res, 1080))
 	cv2.imwrite(res_path, res)
-	cv2.waitKey(0)
     
 def create_sketch(input_image, output_image, mode):
     create_cartoon(input_image, output_image)
