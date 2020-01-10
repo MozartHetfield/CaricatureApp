@@ -18,4 +18,5 @@ def main():
         filters.create_sepia(output_path, output_path)
 
 if __name__ == '__main__':
+
     main()

@@ -99,7 +99,6 @@ def detect_face_features(shape_predictor_68_face_landmarks, image, outputFilenam
         # convert the landmark (x, y)-coordinates to a NumPy array
         shape = predictor(gray, rect)
         shape = shape_to_numpy_array(shape)
-
         output = visualize_facial_landmarks(image, shape, im)
         cv2.imwrite(outputFilename, output)
 
