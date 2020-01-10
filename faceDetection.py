@@ -75,7 +75,7 @@ FACIAL_LANDMARKS_INDEXES = OrderedDict([
 
 facial_features_cordinates = {}
 
-def detect_face_features(shape_predictor_68_face_landmarks, image):
+def detect_face_features(shape_predictor_68_face_landmarks, image, outputFilename):
 
     # define a dictionary that maps the indexes of the facial
     # landmarks to specific face regions
@@ -101,12 +101,5 @@ def detect_face_features(shape_predictor_68_face_landmarks, image):
         shape = shape_to_numpy_array(shape)
 
         output = visualize_facial_landmarks(image, shape, im)
-        cv2.imshow("Image", output)
-        cv2.waitKey(0)
+        cv2.imwrite(outputFilename, output)
 
-if __name__ == '__main__':
-	#black_and_white('bw_eu.jpg', 'bw_eu.jpg')
-	#create_sepia('bw_eu.jpg', 'sepia_eu.jpg')
-	#create_cartoon('basescu.jpg', 'cartoon_eu.jpg')
-	#create_drawing('cartoon_eu.jpg')
-	detect_face_features('shape_predictor_68_face_landmarks.dat', 'basescu.jpg')
